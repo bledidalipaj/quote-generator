@@ -1,0 +1,77 @@
+/* GLOBAL STYLES */
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #9B59B6;
+  color: #9B59B6;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  padding: 3% 0;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  min-height: 285px;
+  margin: 0 auto;
+  /*padding: 3%;*/
+  width: 680px;
+}
+
+.container .wrapper {
+  padding-bottom: 35px;
+  padding-top: 35px;
+}
+
+.container blockquote #quote {
+  font-size: 2rem;
+  text-align: justify;
+}
+
+.container blockquote footer {
+  text-align: right;
+}
+
+.container blockquote:before {
+  /*content: "“";*/
+  content: "\201c";
+  display: inline;
+  font: italic 400%/1 Cochin, Georgia, "Times New Roman", serif;
+}
+
+/* LOGO */
+.logo i {
+  background-color: #9B59B6;
+  display: inline-block;
+  color: #FFF;
+  padding: 7px 5px;
+  width: 25px;
+}
+
+.buttons {
+  list-style-type: none;
+}
+.buttons li{
+  display: inline;
+}
+
+
+/* new-quote BUTTON */
+#new-quote {
+  background-color: #9B59B6;
+  color: #FFF;
+  float: right;
+  margin-right: 39px;
+  padding: 7px 10px;
+}
