@@ -54,7 +54,7 @@ function generateRandomHexadecimalColor() {
  *  - color
  *  - background-color
  *
- * @param {Array of jquery objects} elements
+ * @param {Array} elements - Array of jQuery objects
  * @param {String} property
  * @param {String} newColor
  *

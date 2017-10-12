@@ -20,18 +20,18 @@ body {
   padding: 3% 0;
 }
 
+/* Container */
 .container {
   background-color: #fff;
   border-radius: 5px;
-  min-height: 285px;
   margin: 0 auto;
-  /*padding: 3%;*/
-  width: 680px;
+  margin-top: 6rem;
+  width: 640px;
 }
 
 .container .wrapper {
-  padding-bottom: 35px;
-  padding-top: 35px;
+  padding: 35px 35px 15px 35px;
+  position: relative;
 }
 
 .container blockquote #quote {
@@ -44,10 +44,14 @@ body {
 }
 
 .container blockquote:before {
-  /*content: "“";*/
   content: "\201c";
-  display: inline;
-  font: italic 400%/1 Cochin, Georgia, "Times New Roman", serif;
+  font-family: Arial, Georgia, "Times New Roman", serif;
+  font-size: 5rem;
+  font-weight: bold;
+  left: 20px;
+  line-height: 300px;
+  position: absolute;
+  top: -63px;
 }
 
 /* LOGO */
@@ -55,8 +59,8 @@ body {
   background-color: #9B59B6;
   display: inline-block;
   color: #FFF;
-  padding: 7px 5px;
-  width: 25px;
+  padding: 7px 10px;
+  width: 35px;
 }
 
 .buttons {
