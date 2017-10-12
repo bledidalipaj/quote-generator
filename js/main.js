@@ -5,7 +5,7 @@ $(document).ready(function() {
       $newQuoteBtn = $('#new-quote'),
       $quote = $('#quote')
       $twitterBtn = $('#twiiter');
-      
+
   main();
   $newQuoteBtn.on('click', main);
 });
@@ -27,8 +27,13 @@ function main() {
       setColor([$body], 'color', newColor);
       setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
 
+      $quote.hide(1000);
       $quote.html(quoteContent);
+      $quote.show(1000);
+
+      $author.hide(1000);
       $author.text(quoteAuthor);
+      $author.show(1000);
 
       $('#twitter').attr('href', 'https:twitter.com/intent/tweet?hashtags=quotes&text=' + (quoteContent + ' ' + quoteAuthor));
     },
