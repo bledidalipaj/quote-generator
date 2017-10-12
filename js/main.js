@@ -1,32 +1,40 @@
 $(document).ready(function() {
-  var $body = $('body'),
+  $author = $('#author'),
+      $body = $('body'),
       $icons = $('.logo i'),
-      $newQuoteBtn = $('#new-quote');
-
-  $('#new-quote').on('click', function(e) {
-    e.preventDefault();
-    $.ajax({
-      url: 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1',
-      success: function(data) {
-        var post = data.shift();        // The data is an arrray of posts. Grab the first one.
-        var postTitle = post.title;
-        var postContent = post.content;
-
-        // Change background-color and color
-        var newColor = generateRandomHexadecimalColor();
-        setColor([$body], 'color', newColor);
-        setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
-
-        $('#quote').html(postContent);
-        $('#author').text(postTitle);
-
-        $('#twitter').attr('href', 'https:twitter.com/intent/tweet?hashtags=quotes&text=' + (postContent + ' ' + postTitle));
-        console.log('https:twitter.com/intent/tweet?hashtags=quotes&text=' + (postContent + ' ' + postTitle));
-      },
-      cache: false
-    });                                 // END json call
-  });                                  // END event handler
+      $newQuoteBtn = $('#new-quote'),
+      $quote = $('#quote')
+      $twitterBtn = $('#twiiter');
+      
+  main();
+  $newQuoteBtn.on('click', main);
 });
+
+function main() {
+  var apiUrl = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+  $.ajax({
+    url: apiUrl,
+    success: function(data) {
+      var quote = data.shift();        // The data is an arrray of posts. Grab the first one.
+      var quoteAuthor = quote.title;
+      var quoteContent = quote.content;
+
+      // Remove the p tag, that surrounds the quoteContent
+      quoteContent = quoteContent.replace('<p>', '').replace('</p>', '');
+
+      // Change background-color and color
+      var newColor = generateRandomHexadecimalColor();
+      setColor([$body], 'color', newColor);
+      setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
+
+      $quote.html(quoteContent);
+      $author.text(quoteAuthor);
+
+      $('#twitter').attr('href', 'https:twitter.com/intent/tweet?hashtags=quotes&text=' + (quoteContent + ' ' + quoteAuthor));
+    },
+    cache: false
+  });                                 // END json call
+};
 
 /**
  * Generates and returns a random hexadecimal color
