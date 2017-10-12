@@ -10,7 +10,7 @@ $(document).ready(function() {
       success: function(data) {
         var post = data.shift();        // The data is an arrray of posts. Grab the first one.
         var postTitle = post.title;
-        var postContent = post.content;     
+        var postContent = post.content;
 
         // Change background-color and color
         var newColor = generateRandomHexadecimalColor();
@@ -26,13 +26,13 @@ $(document).ready(function() {
       cache: false
     });                                 // END json call
   });                                  // END event handler
-
-  // $('#twitter').on('click', function(e) {
-  //   e.preventDefault();
-  //   console.log(postContent);
-  //   $(this).attr('href', 'https:twitter.com/intent/tweet?text=' + postContent);
-  // });
 });
+
+/**
+ * Generates and returns a random hexadecimal color
+ *
+ * @return {String}
+ */
 
 function generateRandomHexadecimalColor() {
   var digitsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'],
@@ -46,6 +46,19 @@ function generateRandomHexadecimalColor() {
 
   return color;
 };
+
+/**
+ * Sets the color or the background-color of  an HTML element to newColor.
+ *
+ * property:
+ *  - color
+ *  - background-color
+ *
+ * @param {Array of jquery objects} elements
+ * @param {String} property
+ * @param {String} newColor
+ *
+ */
 
 function setColor(elements, property, newColor) {
   elements.forEach(function(element) {
