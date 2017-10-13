@@ -4,14 +4,14 @@ $(document).ready(function() {
       $icons = $('.logo i'),
       $newQuoteBtn = $('#new-quote'),
       $quote = $('#quote')
-      $twitterBtn = $('#twiiter');
+      $twitterBtn = $('#twitter');
 
   main();
   $newQuoteBtn.on('click', main);
 });
 
 function main() {
-  var apiUrl = 'http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
+  var apiUrl = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
   $.ajax({
     url: apiUrl,
     success: function(data) {
@@ -34,11 +34,10 @@ function main() {
       $author.hide(1000);
       $author.text(quoteAuthor);
       $author.show(1000);
-
-      $('#twitter').attr('href', 'https:twitter.com/intent/tweet?hashtags=quotes&text=' + (quoteContent + ' ' + quoteAuthor));
+      $twitterBtn.attr('href', 'https:twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor));
     },
     cache: false
-  });                                 // END json call
+  });                                 // END ajax call
 };
 
 /**
@@ -48,7 +47,7 @@ function main() {
  */
 
 function generateRandomHexadecimalColor() {
-  var digitsArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'],
+  var digitsArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'],
       color       = '#',
       randomIndex = null;
 

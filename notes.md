@@ -24,3 +24,9 @@ This command will reset the index and working tree. Any changes to tracked files
 ```
 $ git reset --hard <commit>
 ```
+
+## HTML
+
+### <a title=""></a>
+The **title** attribute of the anchor tag **a** defines the title of the link, which appears to the user as a tooltip.
+The **tooltip** is a message which appears when a cursor is positioned over an icon, image, hyperlink, or other element in a graphical user interface.
