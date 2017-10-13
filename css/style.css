@@ -54,6 +54,21 @@ body {
   top: -63px;
 }
 
+/* LOADER */
+
+#loader {
+  left: 43%;
+  margin: 0;
+  position: absolute;
+  top: 25%;
+}
+
+#loader img {
+  height: auto;
+  width: 170px;
+}
+
+
 /* LOGO */
 .logo i {
   background-color: #9B59B6;

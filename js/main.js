@@ -14,6 +14,9 @@ function main() {
   var apiUrl = 'https://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1';
   $.ajax({
     url: apiUrl,
+    beforeSend: function() {
+      $('#loader').show();             // Show the loader image 
+    },
     success: function(data) {
       var quote = data.shift();        // The data is an arrray of posts. Grab the first one.
       var quoteAuthor = quote.title;
@@ -27,9 +30,12 @@ function main() {
       setColor([$body], 'color', newColor);
       setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
 
+
       $quote.hide(1000);
       $quote.html(quoteContent);
       $quote.show(1000);
+
+      $('#loader').hide();             // Hide the loader image
 
       $author.hide(1000);
       $author.text(quoteAuthor);
