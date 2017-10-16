@@ -20,6 +20,17 @@ $ git branch iss53
 $ git checkout iss53
 ```
 
+Merge the **iss53** branch back into your **master** branch:
+```
+$ git checkout master
+$ git merge iss53
+```
+
+You can delete a branch with the **-d** option to **git branch**:
+```
+$ git brach -d iss53
+```
+
 This command will reset the index and working tree. Any changes to tracked files in the working tree since <commit> are discarded.
 ```
 $ git reset --hard <commit>
