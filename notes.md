@@ -28,13 +28,44 @@ $ git merge iss53
 
 You can delete a branch with the **-d** option to **git branch**:
 ```
-$ git brach -d iss53
+$ git branch -d iss53
 ```
 
 This command will reset the index and working tree. Any changes to tracked files in the working tree since <commit> are discarded.
 ```
 $ git reset --hard <commit>
 ```
+
+## Git
+
+Go to a previous commit:
+
+```
+$ git log
+$ git checkout <hash>
+```
+
+When you checkout to a specific commit, git creates a detached branch. So, if you call:
+
+```
+$ git branch
+```
+
+You will see something like:
+```
+* (detached from 3i4j25)
+  master
+  other_branch
+```
+
+To come back to the master branch head you just need to checkout to your master branch again:
+
+```
+$ git checkout master
+````
+
+This command will automatically delete the detached branch. This command will automatically delete the detached branch.
+
 
 ## HTML
 
