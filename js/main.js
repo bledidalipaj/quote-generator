@@ -15,7 +15,7 @@ function main() {
   $.ajax({
     url: apiUrl,
     beforeSend: function() {
-      $('#loader').show();             // Show the loader image 
+      $('#loader').show();             // Show the loader image
     },
     success: function(data) {
       var quote = data.shift();        // The data is an arrray of posts. Grab the first one.
@@ -30,7 +30,6 @@ function main() {
       setColor([$body], 'color', newColor);
       setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
 
-
       $quote.hide(1000);
       $quote.html(quoteContent);
       $quote.show(1000);
@@ -40,7 +39,10 @@ function main() {
       $author.hide(1000);
       $author.text(quoteAuthor);
       $author.show(1000);
-      $twitterBtn.attr('href', 'https:twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor));
+
+      $twitterBtn.on('click', function() {
+        window.open('https:twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor));
+      });
     },
     cache: false
   });                                 // END ajax call
