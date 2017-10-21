@@ -41,7 +41,7 @@ function main() {
       $author.show(1000);
 
       $twitterBtn.on('click', function() {
-        window.open('https:twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor));
+        window.open('https://twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor));
       });
     },
     cache: false
