@@ -1,10 +1,11 @@
 $(document).ready(function() {
   $author = $('#author'),
       $body = $('body'),
-      $icons = $('.logo i'),
-      $newQuoteBtn = $('#new-quote'),
-      $quote = $('#quote')
-      $twitterBtn = $('#twitter');
+      $icons = $('.twitter-logo i'),
+      $newQuoteBtn = $('#new-quote-btn'),
+			$quote = $('#quote'),
+      $quoteContent = $('#quote span.quote-content')
+      $twitterBtn = $('#twitter-btn');
 
   main();
   $newQuoteBtn.on('click', main);
@@ -31,18 +32,17 @@ function main() {
       setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
 
       $quote.hide(1000);
-      $quote.html(quoteContent);
+      $quoteContent.html(quoteContent);
       $quote.show(1000);
 
       $('#loader').hide();             // Hide the loader image
 
       $author.hide(1000);
-      $author.text(quoteAuthor);
+      $author.html(quoteAuthor);
       $author.show(1000);
-
-      $twitterBtn.on('click', function() {
-        window.open('https://twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor));
-      });
+			
+			var tweetUrl = 'https://twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor);
+      $twitterBtn.attr('href', tweetUrl);
     },
     cache: false
   });                                 // END ajax call

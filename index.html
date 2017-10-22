@@ -6,41 +6,39 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quote Generator</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style2.css">
 </head>
 <body>
-  <div id="loader">
-    <img src="img/loader.gif" alt="Loader">
-  </div>
+  
 
   <div class="container">
-    <div class="wrapper">
-      <blockquote>
-        <div id="quote">
-        </div>
-        <footer>- <span id="author"></span></footer>
-      </blockquote>
+  	<div id="loader">
+			<img src="img/loader.gif" alt="Loader">
+		</div>
+		
+		<blockquote>
+			<div id="quote">
+				<p>
+					<span class="double-quotes">&ldquo;</span> 
+					<span class="quote-content">To see takes time.</span>
+				</p>
+			</div>
+			<footer class="footer">- <span id="author">Georgia O’Keeffe</span></footer>
+		</blockquote>
 
-      <ul class="buttons">
-        <li>
-          <!-- Set the href attribute as href="javascript:;" to prevent default behaviour -->
-          <a href="javascript:;" id="twitter" target="_blank" title="Tweet this quote!">
-            <span class="logo">
-              <i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
-            </span>
-          </a>
-        </li>
-        <li>
-          <!-- Set the href attribute as href="javascript:;" to prevent default behaviour -->
-          <a href="javascript:;" role="button" id="new-quote">New quote</a>
-        </li>
-      </ul>
-    </div> <!-- END wrapper -->
+		<!-- Set the href attribute as href="javascript:;" to prevent default behaviour -->
+		<a href="javascript:;" id="twitter-btn" target="_blank" title="Tweet this quote!">
+			<span class="twitter-logo">
+				<i class="fa fa-twitter fa-1x" aria-hidden="true"></i>
+			</span>
+		</a>
+		<!-- Set the href attribute as href="javascript:;" to prevent default behaviour -->
+		<a href="javascript:;" role="button" id="new-quote-btn">New quote</a>
   </div> <!-- END container -->
 
   <!-- JQuery -->
   <script
   src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-  <script src="js/main.js"></script>
+  <script src="js/main2.js"></script>
 </body>
 </html>
