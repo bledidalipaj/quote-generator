@@ -25,7 +25,7 @@ a {
 	width: 100%;
 }
 
-.container blockquote {
+.container .blockquote {
 	margin: 0;
 	margin-bottom: 20px;
 }
@@ -36,7 +36,7 @@ a {
 	font-weight: bold;
 }
 
-.container blockquote #quote {
+.container .blockquote #quote {
 	font-size: 1.6rem;
 	text-align: justify;
 }
@@ -46,6 +46,7 @@ a {
 }
 
 #loader {
+	display: none;
 	margin: 0 auto;
 	width: 150px;
 	height: 0;
@@ -79,7 +80,7 @@ a {
 
 /* Media Queries */
 @media screen and (max-width: 480px) {
-	.container blockquote #quote {
+	.container .blockquote #quote {
 		font-size: 1.3rem;
 		text-align: justify;
 	}

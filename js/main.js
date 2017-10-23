@@ -6,8 +6,7 @@ $(document).ready(function() {
 			$quote = $('#quote'),
       $quoteContent = $('#quote span.quote-content')
       $twitterBtn = $('#twitter-btn');
-
-  main();
+	
   $newQuoteBtn.on('click', main);
 });
 
