@@ -31,7 +31,7 @@ function main() {
       setColor([$body], 'color', newColor);
       setColor([$body, $icons, $newQuoteBtn], 'background-color', newColor);
 
-      $quote.hide(1000);
+      $quote.hide(100);
       $quoteContent.html(quoteContent);
       $quote.show(1000);
 
@@ -41,7 +41,12 @@ function main() {
       $author.html(quoteAuthor);
       $author.show(1000);
 			
-			var tweetUrl = 'https://twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"' + ' ' + quoteAuthor);
+			// shorten quote content to fit available twitter chars (140)
+			quoteContent = shortenText(quoteContent, [quoteAuthor || '', '#quotes']);
+			// Encode quote content in order to be used in a url
+			quoteContent = encodeURIComponent(quoteContent);
+
+			var tweetUrl = 'https://twitter.com/intent/tweet?hashtags=quotes&text=' + ( '"' + quoteContent + '"'+ ' ' + quoteAuthor);
       $twitterBtn.attr('href', tweetUrl);
     },
     cache: false
@@ -85,3 +90,39 @@ function setColor(elements, property, newColor) {
     element.css(property, newColor);
   });
 };
+
+
+/**
+ * Shorten given text to fit in the available space.
+ *
+ *
+ * @param {String} text
+ * @param {Array} mandatoryText
+ * @param {Number} availableChars - availableChars default value 140
+ * @return {String}
+ * 
+ */
+function shortenText(text, mandatoryText, availableChars=140) {
+	var quotesLength = 2,
+			whiteSpace   = 2;
+	availableChars -= (text.length + quotesLength + whiteSpace);
+	
+	for (var i=0; i<mandatoryText.length; i++) {
+		availableChars -= mandatoryText[i].length;
+	}
+	
+	if (availableChars >= 0) {
+		return text;
+	} else {
+		// Remove extra characters
+		text = text.slice(0, availableChars);
+		// Remove 3 more characters in order to replace them with '...'
+		text = text.slice(0, -3);
+		// Remove white space from both sides of the string
+		text = text.trim();
+		// Add '...'
+		text = text + '...';
+		
+		return text;
+	}
+}

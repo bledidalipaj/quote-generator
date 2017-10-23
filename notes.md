@@ -72,3 +72,12 @@ This command will automatically delete the detached branch. This command will au
 ### <a title=""></a>
 The **title** attribute of the anchor tag **a** defines the title of the link, which appears to the user as a tooltip.
 The **tooltip** is a message which appears when a cursor is positioned over an icon, image, hyperlink, or other element in a graphical user interface.
+
+
+## Python 3
+
+Start http server
+
+```
+$ python -m http.server
+```
